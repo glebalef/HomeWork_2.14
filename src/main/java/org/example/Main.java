@@ -1,31 +1,18 @@
 package org.example;
 
+import java.net.SocketTimeoutException;
+import java.sql.SQLOutput;
+
 public class Main {
     public static void main(String[] args) {
 
-        HomeWork_ArrayList test = new HomeWork_ArrayList(10);
+        HomeWork_ArrayList test = new HomeWork_ArrayList(5);
 
-        test.add(3,"test");
-        test.add("pipa");
+
         test.add("bulochka");
         test.add("masha");
-        test.add("vzhik");
-        test.add("agsay");
-        test.add("homelander");
-        test.add("starlight");
-        test.add("deep");
-        test.add("stormfront");
-        test.set(3,"test2");
-        test.remove("test2");
-
-
-
+        test.add(2,"vzhik");
+        test.add(1,"pipa");
         System.out.println(test);
-
-
-
     }
-
-
-
 }
