@@ -11,8 +11,7 @@ public class Main {
 
         test.add("bulochka");
         test.add("masha");
-        test.add(2,"vzhik");
-        test.add(1,"pipa");
+        test.add(0,"vzhik");
         System.out.println(test);
     }
 }
