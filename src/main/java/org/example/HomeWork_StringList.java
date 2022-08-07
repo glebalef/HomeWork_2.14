@@ -2,14 +2,14 @@ package org.example;
 
 import java.util.Arrays;
 
-public class HomeWork_ArrayList implements StringList {
+public class HomeWork_StringList implements StringList {
     private final String[] strings;
     private int arrayLength;
 
-    public HomeWork_ArrayList() {
+    public HomeWork_StringList() {
         strings = new String[10];
     }
-    public HomeWork_ArrayList (int initSize) {
+    public HomeWork_StringList(int initSize) {
         strings = new String[initSize];
     }
 
@@ -26,7 +26,7 @@ public class HomeWork_ArrayList implements StringList {
         }
 
         private void validateIndex (int index) {
-            if (index > 0 || index > arrayLength) {
+            if (index < 0 || index > arrayLength) {
                 throw new InvalidIndexException();
             }
         }
@@ -160,4 +160,6 @@ public class HomeWork_ArrayList implements StringList {
     public String[] toArray() {
         return Arrays.copyOf(strings,arrayLength);
     }
-}
+    }
+
+
