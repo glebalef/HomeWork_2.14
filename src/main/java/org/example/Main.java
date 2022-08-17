@@ -1,31 +1,33 @@
 package org.example;
 
+import java.sql.SQLOutput;
+
 public class Main {
     public static void main(String[] args) {
 
-        HomeWork_ArrayList test = new HomeWork_ArrayList(10);
 
-        test.add(3,"test");
-        test.add("pipa");
-        test.add("bulochka");
-        test.add("masha");
-        test.add("vzhik");
-        test.add("agsay");
-        test.add("homelander");
-        test.add("starlight");
-        test.add("deep");
-        test.add("stormfront");
-        test.set(3,"test2");
-        test.remove("test2");
+        // String
+//        HomeWork_StringList test = new HomeWork_StringList(5);
+//
+//
+//        test.add("bulochka");
+//        test.add("masha");
+//        test.add(0, "vzhik");
+//        System.out.println(test);
 
 
+        // Integer
 
-        System.out.println(test);
+        HomeWork_IntegerList testInteger = new HomeWork_IntegerList(4);
 
+        testInteger.add(1);
+        testInteger.add(2);
+        testInteger.add(3);
+        testInteger.add(4);
+        testInteger.add(5);
+
+        System.out.println(testInteger.toString());
 
 
     }
-
-
-
 }
