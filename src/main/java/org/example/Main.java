@@ -7,19 +7,26 @@ public class Main {
 
 
         // String
-        HomeWork_StringList test = new HomeWork_StringList(5);
-
-
-        test.add("bulochka");
-        test.add("masha");
-        test.add(0, "vzhik");
-        System.out.println(test);
+//        HomeWork_StringList test = new HomeWork_StringList(5);
+//
+//
+//        test.add("bulochka");
+//        test.add("masha");
+//        test.add(0, "vzhik");
+//        System.out.println(test);
 
 
         // Integer
 
-        HomeWork_IntegerList testInteger = new HomeWork_IntegerList(100000);
+        HomeWork_IntegerList testInteger = new HomeWork_IntegerList(4);
 
+        testInteger.add(1);
+        testInteger.add(2);
+        testInteger.add(3);
+        testInteger.add(4);
+        testInteger.add(5);
+
+        System.out.println(testInteger.toString());
 
 
     }

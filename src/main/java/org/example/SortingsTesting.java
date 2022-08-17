@@ -33,7 +33,7 @@ public class SortingsTesting {
 
 
     // методы сортировки
-    private static void swapElements(Integer[] arr, int indexA, int indexB) {
+    static void swapElements(Integer[] arr, int indexA, int indexB) {
         int tmp = arr[indexA];
         arr[indexA] = arr[indexB];
         arr[indexB] = tmp;

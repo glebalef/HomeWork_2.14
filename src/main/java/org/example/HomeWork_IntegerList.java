@@ -1,9 +1,13 @@
 package org.example;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 
+import static org.example.SortingsTesting.swapElements;
+
 public class HomeWork_IntegerList implements IntegerList {
-    private final Integer[] integers;
+    private Integer[] integers;
     private int arrayLength;
 
     public HomeWork_IntegerList() {
@@ -12,19 +16,9 @@ public class HomeWork_IntegerList implements IntegerList {
 
     public HomeWork_IntegerList(int initSize) {
         integers = new Integer[initSize];
-        sortSelection(integers);
+        sort(integers, 0, integers.length-1);
     }
 
-    private static void sortSelection(Integer[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            int minElementIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minElementIndex]) {
-                    minElementIndex = j;
-                }
-            }
-        }
-    }
 
     @Override
     public String toString() {
@@ -39,7 +33,7 @@ public class HomeWork_IntegerList implements IntegerList {
 
     private void validateSize() {
         if (arrayLength == integers.length) {
-            throw new StringsIsFullException();
+            grow();
         }
     }
 
@@ -175,7 +169,7 @@ public class HomeWork_IntegerList implements IntegerList {
         return Arrays.copyOf(integers, arrayLength);
     }
 
-    public static boolean contains(int[] arr, int element) {
+    private static boolean contains(int[] arr, int element) {
         int min = 0;
         int max = arr.length - 1;
 
@@ -193,5 +187,48 @@ public class HomeWork_IntegerList implements IntegerList {
             }
         }
         return false;
+    }
+    public static void sortSelection(Integer[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minElementIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minElementIndex]) {
+                    minElementIndex = j;
+                }
+            }
+        }
+    }
+
+    public static void sort(Integer[] arr, int begin, int end) {
+        if (begin < end) {
+            int partitionIndex = partition(arr, begin, end);
+
+            sort(arr, begin, partitionIndex - 1);
+            sort(arr, partitionIndex + 1, end);
+        }
+    }
+
+    private static Integer partition(Integer[] arr, int begin, int end) {
+        int pivot = arr[end];
+        int i = (begin - 1);
+
+        for (int j = begin; j < end; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                swapElements(arr, i, j);
+            }
+        }
+        swapElements(arr, i + 1, end);
+        return i + 1;
+    }
+
+    private static void swapElements(Integer @NotNull [] arr, int i1, int i2) {
+        int temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    private void grow () {
+           integers =  Arrays.copyOf(integers, (int) (arrayLength*1.5));
     }
 }
